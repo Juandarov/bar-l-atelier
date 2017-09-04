@@ -80,6 +80,7 @@ STATICFILES_FINDERS = [
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
     'sass_processor.finders.CssFinder',
+    'djangobower.finders.BowerFinder',
 ]
 
 SASS_PROCESSOR_INCLUDE_DIRS = [
@@ -163,6 +164,7 @@ INSTALLED_APPS = (
     'atelier',
 
     'sass_processor',
+    'djangobower',
 )
 
 LANGUAGES = (
@@ -222,3 +224,10 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters'
 )
+
+BOWER_INSTALLED_APPS = (
+   'jquery',
+   'foundation-sites'
+)
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static")
