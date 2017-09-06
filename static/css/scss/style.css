@@ -4995,12 +4995,29 @@ a.thumbnail {
   .large-flex-dir-column-reverse {
     flex-direction: column-reverse; } }
 
-/* HOMEPAGE CSS */
-.nav {
-  display: flex;
-  justify-content: space-around; }
-
 h1 {
   color: grey; }
+
+/* Small only */
+/* Medium and up */
+@media screen and (min-width: 40em) {
+  .title-bar {
+    display: none; }
+  .top-bar {
+    padding: 0;
+    height: 8vh; }
+  .home {
+    width: 100%;
+    height: 92vh;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box; }
+    .home .home_title {
+      height: 100%;
+      text-align: center; } }
+
+/* Medium only */
+/* Large and up */
+/* Large only */
 
 /*# sourceMappingURL=../../../../../../../../../../static/css/scss/style.css.map */

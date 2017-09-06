@@ -74,6 +74,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'atelier', 'static'),
+    os.path.join(BASE_DIR, 'static', 'bower_components'),
 )
 
 STATICFILES_FINDERS = [
@@ -84,8 +85,12 @@ STATICFILES_FINDERS = [
 ]
 
 SASS_PROCESSOR_INCLUDE_DIRS = [
-    os.path.join(BASE_DIR, 'atelier' 'static' 'css', 'scss')
+    os.path.join(BASE_DIR, 'atelier' 'static' 'css', 'scss'),
 ]
+
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static", "bower_components")
+
+SASS_PROCESSOR_ROOT = "static/"
 
 
 SITE_ID = 1
@@ -196,6 +201,7 @@ CMS_TEMPLATES = (
     ('homepage.html', 'Homepage'),
     ('accueil.html', 'Accueil'),
     ('lieu_de_vie.html', 'Lieux de vie'),
+    ('contact.html', 'Contact'),
 )
 
 CMS_PERMISSION = True
@@ -226,8 +232,7 @@ THUMBNAIL_PROCESSORS = (
 )
 
 BOWER_INSTALLED_APPS = (
-   'jquery',
-   'foundation-sites'
+    'jquery',
+    'foundation-sites'
 )
 
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static")
