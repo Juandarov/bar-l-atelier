@@ -4,6 +4,10 @@ h1{
     color: grey;
 }
 
+.columns {
+    background-color: gray;
+}
+
 
 /* Small only */
 @media screen and (max-width: 39.9375em) {}
@@ -33,6 +37,10 @@ h1{
         .home_title {
             height: 100%;
             text-align: center;
+        }
+
+        img {
+            width: 10%;
         }
     }
 

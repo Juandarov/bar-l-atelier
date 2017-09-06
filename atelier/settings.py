@@ -75,6 +75,7 @@ STATIC_ROOT = os.path.join(DATA_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'atelier', 'static'),
     os.path.join(BASE_DIR, 'static', 'bower_components'),
+    os.path.join(BASE_DIR, 'media', 'images'),
 )
 
 STATICFILES_FINDERS = [
