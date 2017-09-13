@@ -2,14 +2,43 @@
 {% load cms_tags %} 
 {% block title %}{% page_attribute "page_title" %}{% endblock title %} 
 {% block content %}
+
 <h1>Accueill</h1>
 
-<div class="row">
-    <div class="small-6 columns">6 columns</div>
-    <div class="small-6 columns">6 columns</div>
-</div>
-<div class="row">
-    <div class="medium-6 large-4 columns">12/6/4 columns</div>
-    <div class="medium-6 large-8 columns">12/6/8 columns</div>
+<div class="row image-slider">
+  <div class="orbit" role="region" aria-label="Favorite Space Pictures" data-orbit>
+    <div class="orbit-wrapper">
+      <div class="orbit-controls">
+        <button class="orbit-previous"><span class="show-for-sr">Previous Slide</span>&#9664;&#xFE0E;</button>
+        <button class="orbit-next"><span class="show-for-sr">Next Slide</span>&#9654;&#xFE0E;</button>
+      </div>
+      <ul class="orbit-container">
+        <li class="is-active orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="http://placehold.it/1200x600" alt="Space">
+            <figcaption class="orbit-caption">Space, the final frontier.</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="http://placehold.it/1200x600" alt="Space">
+            <figcaption class="orbit-caption">Lets Rocket!</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="http://placehold.it/1200x600" alt="Space">
+            <figcaption class="orbit-caption">Encapsulating</figcaption>
+          </figure>
+        </li>
+        <li class="orbit-slide">
+          <figure class="orbit-figure">
+            <img class="orbit-image" src="http://placehold.it/1200x600" alt="Space">
+            <figcaption class="orbit-caption">Outta This World</figcaption>
+          </figure>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 {% endblock content %}

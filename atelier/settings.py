@@ -89,7 +89,7 @@ SASS_PROCESSOR_INCLUDE_DIRS = [
     os.path.join(BASE_DIR, 'atelier' 'static' 'css', 'scss'),
 ]
 
-BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static", "bower_components")
+BOWER_COMPONENTS_ROOT = os.path.join(BASE_DIR, "static")
 
 SASS_PROCESSOR_ROOT = "static/"
 
@@ -201,8 +201,12 @@ CMS_TEMPLATES = (
     ('fullwidth.html', 'Fullwidth'),
     ('homepage.html', 'Homepage'),
     ('accueil.html', 'Accueil'),
+    ('bar.html', 'Bar'),
+    ('atelier.html', 'Atelier'),
     ('lieu_de_vie.html', 'Lieux de vie'),
+    ('evenements.html', 'Evenements'),
     ('contact.html', 'Contact'),
+
 )
 
 CMS_PERMISSION = True
@@ -234,6 +238,7 @@ THUMBNAIL_PROCESSORS = (
 
 BOWER_INSTALLED_APPS = (
     'jquery',
-    'foundation-sites'
+    'foundation-sites',
+    'motion-ui'
 )
 

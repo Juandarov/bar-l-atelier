@@ -1,11 +1,12 @@
-{% load cms_tags menu_tags sekizai_tags %} {% load sass_tags %} {% load static %}
+{% load cms_tags menu_tags sekizai_tags %} 
+{% load sass_tags %} {% load static %}
 <!doctype html>
 <html>
 
 <head>
     <title>{% block title %}This is my new project home page{% endblock title %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="{% sass_src 'css/scss/style.scss' %}" rel="stylesheet" type="text/css" /> {% render_block "css" %}
+    <link href="{% sass_src 'css/scss/style.scss' %}" rel="stylesheet" type="text/css" /> {% render_block "css" %} {% render_block "css" %}
 </head>
 
 <body>
@@ -17,23 +18,25 @@
         </div>
 
         <div class="top-bar" id="main-nav">
-            <div class="top-bar-left">
+            <div class="top-bar">
                 <ul class="dropdown vertical medium-horizontal menu" data-dropdown-menu>
-                    <li class="menu-text">L'Atelier</li>
-                    {% show_menu 0 100 100 100 %} 
+                    {% show_menu 0 100 100 100 %}
                 </ul>
             </div>
         </div>
         {% block content %}{% endblock content %}
+
     </div>
     <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'foundation-sites/dist/js/plugins/foundation.orbit.js' %}"></script>
     <script>
         $(document).ready(function () {
             $(document).foundation();
+            $('.services-animate').addClass('is-animating');
         });
     </script>
-    {% render_block "js" %}
+{% render_block "js" %}
 </body>
 
 </html>

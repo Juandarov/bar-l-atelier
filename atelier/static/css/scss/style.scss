@@ -1,56 +1,97 @@
 @import 'static/bower_components/foundation-sites/assets/foundation.scss';
+@include foundation-flex-classes;
+@include foundation-flex-grid;
+@import 'static/bower_components/motion-ui/motion-ui.scss';
+@include motion-ui-transitions;
+@include motion-ui-animations;
 
-h1{
+h1 {
     color: grey;
-}
-
-.columns {
-    background-color: gray;
 }
 
 
 /* Small only */
+
 @media screen and (max-width: 39.9375em) {}
 
-/* Medium and up */
-@media screen and (min-width: 40em) {
 
-// BASE CSS
-  
+/* Medium and up */
+
+@media screen and (min-width: 40em) {
+    // BASE CSS
     .title-bar {
         display: none;
     }
-    
     .top-bar {
         padding: 0;
         height: 8vh
-    }
-
-// HOME CSS
-    .home{
+    } // HOME CSS
+    
+    .home {
         width: 100%;
         height: 92vh;
         position: relative;
         overflow: hidden;
         box-sizing: border-box;
-    
+        .middle {
+            margin-top: 10vh;
+            .horaire {
+                @include mui-animation(slide($direction: left, $amount: 120%));
+                animation-duration: 2s;
+                background-color: gray;
+                border: solid 2px blue;
+            }
+            .intro {
+                @include mui-animation(slide($direction: right, $amount: 120%));
+                animation-duration: 2s;
+                background-color: gray;
+                border: solid 2px blue;
+            }
+            .button_event {
+                @include mui-animation(slide($direction: bottom, $amount: 120%));
+                animation-duration: 2s;
+                background-color: gray;
+                border: solid 2px blue;
+            }
+        }
         .home_title {
             height: 100%;
             text-align: center;
         }
-
         img {
-            width: 10%;
+            width: 100%;
         }
-    }
-
+    } // ACCUEIL
+    .image-slider {
+        width: 60%;
+    } // CONTACT CSS
 }
 
+
 /* Medium only */
+
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {}
 
+
 /* Large and up */
+
 @media screen and (min-width: 64em) {}
 
+
 /* Large only */
+
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
+// ANIMATIONS
+
+@include mui-series(2s) {
+    .home #bar {
+        @include mui-queue(0.5s, 0s, fade, zoom);
+    }
+    .home #atelier {
+        @include mui-queue(0.5s, 0s, fade, zoom);
+    }
+    .home #lieu-de-vie {
+        @include mui-queue(0.5s, 0s, fade, zoom);
+    }
+}

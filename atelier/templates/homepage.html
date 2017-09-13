@@ -1,11 +1,39 @@
-{% extends "base.html" %} {% load cms_tags %} {% load static %} {% block title %}{% page_attribute "page_title" %}{% endblock
-title %} {% block content %}
+{% extends "base.html" %}
+{% load cms_tags sekizai_tags %}
+{% load static %}
+{% block title %} {% page_attribute "page_title" %} {% endblock title %}
+{% block content %}
 <div class="home">
-    <div class="home_title">
-        <div class="row">
-            <h1>Bar L'Atelier</h1>
-            <img src="{% static 'logo.png' %}" alt="logo">
-            <a href="#" class="button">Evènements à venir</a>
+    <h1>Bar L'Atelier</h1>
+    <div class="row middle">
+        <div class="small-12 medium-8 columns">
+            <div class="row intro">
+                <div class="small-12 medium-4 columns">
+                    <img src="{% static 'Logo_Atelier_Design.jpg' %}" alt="logo">
+                </div>
+                <div class="small-12 medium-8 columns">
+                    <div class="row services-animate">
+                        <div class="small-12 medium-4 colums" id="bar">
+                           Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                        </div>
+                        <div class="small-12 medium-4 colums" id="atelier">
+                           Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                        </div>
+                        <div class="small-12 medium-4 colums" id="lieu-de-vie">
+                           Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row button_event">
+                <a href="#" class="button">Evènements à venir</a>
+            </div>
+        </div>
+
+        <div class="small-12 medium-4 columns horaire">
+            <div class="horaire_dynamique">
+                <p>horaires</p>
+            </div>
         </div>
     </div>
 </div>
