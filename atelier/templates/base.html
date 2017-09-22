@@ -2,7 +2,6 @@
 {% load sass_tags %} {% load static %}
 <!doctype html>
 <html>
-
 <head>
     <title>{% block title %}This is my new project home page{% endblock title %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -26,17 +25,27 @@
         </div>
         {% block content %}{% endblock content %}
 
+        <footer>
+            <h4>FOOTER</h4>
+        </footer>
     </div>
     <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.core.js' %}"></script>
+    <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.util.motion.js ' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/dist/js/plugins/foundation.orbit.js' %}"></script>
+    <script type="text/javascript" src="{% static 'foundation-sites/dist/js/plugins/foundation.accordion.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.tabs.js' %}"></script>
+    <script type="text/javascript" src="{% static 'foundation-sites/dist/js/plugins/foundation.responsiveAccordionTabs.min.js' %}"></script>
     <script>
         $(document).ready(function () {
             $(document).foundation();
-            $('.services-animate').addClass('is-animating');
+
+            if (Foundation.MediaQuery.is('large')) {
+                $('.services-animate').addClass('is-animating');
+            }
         });
     </script>
-{% render_block "js" %}
+{% render_block "extra_javascripts" %}
 </body>
-
 </html>

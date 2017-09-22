@@ -203,10 +203,8 @@ CMS_TEMPLATES = (
     ('accueil.html', 'Accueil'),
     ('bar.html', 'Bar'),
     ('atelier.html', 'Atelier'),
-    ('lieu_de_vie.html', 'Lieux de vie'),
     ('evenements.html', 'Evenements'),
     ('contact.html', 'Contact'),
-
 )
 
 CMS_PERMISSION = True

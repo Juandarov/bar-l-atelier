@@ -4,94 +4,161 @@
 @import 'static/bower_components/motion-ui/motion-ui.scss';
 @include motion-ui-transitions;
 @include motion-ui-animations;
+@import "static/bower_components/foundation-sites/scss/components/_accordion.scss";
+@import "variables";
+@import "animations";
+@import "small";
+@import "medium";
+$breakpoints: ( small: 0px, medium: 40em, large: 64em, );
 
+// ALL CSS
 h1 {
     color: grey;
+    text-align: center;
 }
-
-
-/* Small only */
-
-@media screen and (max-width: 39.9375em) {}
-
 
 /* Medium and up */
 
 @media screen and (min-width: 40em) {
+    .bar {
+        .accordion-atelier {
+            .tabs {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                .tabs-title {
+                    width: 33.339%;
+                    margin: 0.5em;
+                    a {
+                        padding-bottom: 0;
+                        outline: 0;
+                    }
+                }
+                .is-active {
+                    box-shadow: 0px 1px 5px 2px;
+                    border-bottom: solid 3px #ff2601;
+                    .arrow-up {
+                        width: 0;
+                        margin: 0 auto;
+                        height: 0; 
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        
+                        border-bottom: 15px solid #ff2601;
+                      }
+                }
+            }
+            .tabs-content {
+                width: 100%;
+            }
+        }
+    }
+
+    .atelier {
+        .accordion-atelier {
+            .tabs {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                .tabs-title {
+                    width: 33.339%;
+                    margin: 0.5em;
+                    a {
+                        padding-bottom: 0;
+                        outline: 0;
+                    }
+                }
+                .is-active {
+                    box-shadow: 0px 1px 5px 2px;
+                    border-bottom: solid 3px #ff2601;
+                    .arrow-up {
+                        width: 0;
+                        margin: 0 auto;
+                        height: 0; 
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        
+                        border-bottom: 15px solid #ff2601;
+                      }
+                }
+            }
+            .tabs-content {
+                width: 100%;
+            }
+        }
+    }
+}
+
+
+/* Large and up */
+
+@media screen and (min-width: 64em) {
     // BASE CSS
+    .small-services-buttons {
+        display: none;
+    }
     .title-bar {
         display: none;
     }
     .top-bar {
         padding: 0;
         height: 8vh
-    } // HOME CSS
-    
+    }
+    // HOME CSS
     .home {
         width: 100%;
-        height: 92vh;
+        height: 82vh;
         position: relative;
         overflow: hidden;
         box-sizing: border-box;
-        .middle {
+        .center {
             margin-top: 10vh;
-            .horaire {
-                @include mui-animation(slide($direction: left, $amount: 120%));
-                animation-duration: 2s;
-                background-color: gray;
-                border: solid 2px blue;
+            .horaire-dynamique  {
+                @include mui-animation(fade);
+                animation-duration: 3s;
+                text-align: center;
             }
-            .intro {
+            .logo-img {
                 @include mui-animation(slide($direction: right, $amount: 120%));
                 animation-duration: 2s;
                 background-color: gray;
                 border: solid 2px blue;
             }
-            .button_event {
-                @include mui-animation(slide($direction: bottom, $amount: 120%));
+            .services {
+                @include mui-animation(slide($direction: top, $amount: 120%));
                 animation-duration: 2s;
                 background-color: gray;
                 border: solid 2px blue;
+                padding: 0.9375rem;
+                .services-animate{
+                    div {
+                        text-align: center
+                    }
+                }
+            }
+            .evenements {
+                @include mui-animation(slide($direction: left, $amount: 120%));
+                animation-duration: 2s;
+                background-color: gray;
+                border: solid 2px blue;
+                display: flex;
+                justify-content: space-around;
             }
         }
-        .home_title {
-            height: 100%;
-            text-align: center;
-        }
-        img {
-            width: 100%;
-        }
-    } // ACCUEIL
+    }
+    .home+footer {
+        height: 10vh;
+        text-align: center;
+        background-color: grey;
+    }
+    // ACCUEIL
     .image-slider {
         width: 60%;
-    } // CONTACT CSS
+    }
+    // CONTACT CSS64em
 }
-
-
-/* Medium only */
-
-@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
-
-
-/* Large and up */
-
-@media screen and (min-width: 64em) {}
 
 
 /* Large only */
 
 @media screen and (min-width: 64em) and (max-width: 74.9375em) {}
-
-// ANIMATIONS
-
-@include mui-series(2s) {
-    .home #bar {
-        @include mui-queue(0.5s, 0s, fade, zoom);
-    }
-    .home #atelier {
-        @include mui-queue(0.5s, 0s, fade, zoom);
-    }
-    .home #lieu-de-vie {
-        @include mui-queue(0.5s, 0s, fade, zoom);
-    }
-}

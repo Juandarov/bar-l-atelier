@@ -1,0 +1,20 @@
+/* Small only */
+
+@media screen and (max-width: 39.9375em) {
+    .home {
+        .services-animate {
+            display: none;
+        }
+        .small-services-buttons {
+            a {
+                width: 100%;
+            }
+        }
+        .logo-img {
+            text-align: center;
+            img {
+                width: 60%;
+            }
+        }
+    }
+}
