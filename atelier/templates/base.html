@@ -1,11 +1,22 @@
-{% load cms_tags menu_tags sekizai_tags %} 
-{% load sass_tags %} {% load static %}
+{% load cms_tags menu_tags sekizai_tags %}
+{% load sass_tags %}
+{% load static %}
 <!doctype html>
 <html>
+
 <head>
     <title>{% block title %}This is my new project home page{% endblock title %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="{% sass_src 'css/scss/style.scss' %}" rel="stylesheet" type="text/css" /> {% render_block "css" %} {% render_block "css" %}
+    <link href="{% sass_src 'css/scss/style.scss' %}" rel="stylesheet" type="text/css"/> 
+    {% render_block "css" %}
+    <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+    <style>
+        body {
+            background-image: url("{% static 'bg01.jpg' %}");
+            background-repeat: no-repeat;
+            background-size: 100%;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,13 +34,14 @@
                 </ul>
             </div>
         </div>
-        {% block content %}{% endblock content %}
+        {% block content %}
+        {% endblock content %}
 
         <footer>
             <h4>FOOTER</h4>
         </footer>
     </div>
-    <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+  
     <script type="text/javascript" src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.core.js' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.util.motion.js ' %}"></script>
@@ -46,6 +58,7 @@
             }
         });
     </script>
-{% render_block "extra_javascripts" %}
+    {% render_block "js" %}
 </body>
+
 </html>

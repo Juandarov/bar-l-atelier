@@ -205,6 +205,7 @@ CMS_TEMPLATES = (
     ('atelier.html', 'Atelier'),
     ('evenements.html', 'Evenements'),
     ('contact.html', 'Contact'),
+    ('autres_services.html', 'services')
 )
 
 CMS_PERMISSION = True
@@ -239,4 +240,3 @@ BOWER_INSTALLED_APPS = (
     'foundation-sites',
     'motion-ui'
 )
-

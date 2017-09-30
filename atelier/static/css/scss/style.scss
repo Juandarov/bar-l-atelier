@@ -10,12 +10,35 @@
 @import "small";
 @import "medium";
 $breakpoints: ( small: 0px, medium: 40em, large: 64em, );
-
 // ALL CSS
+body {
+    background-image: url(../atelier/media/images/bg01.jpg);
+    background-size: cover;
+}
+
 h1 {
     color: grey;
     text-align: center;
 }
+
+
+// BAR CSS
+.bar {
+    h3 {
+        text-align: center;
+        text-transform: capitalize;
+        color: #575652;
+    }
+}
+
+.atelier {
+    h3 {
+        text-align: center;
+        text-transform: capitalize;
+        color: #575652;
+    }
+}
+
 
 /* Medium and up */
 
@@ -34,22 +57,98 @@ h1 {
                         outline: 0;
                     }
                 }
-                .is-active {
-                    box-shadow: 0px 1px 5px 2px;
+                #snack_bar.is-active {
+                    box-shadow: 0px 1px 5px 2px #ff2601;
                     border-bottom: solid 3px #ff2601;
                     .arrow-up {
                         width: 0;
                         margin: 0 auto;
-                        height: 0; 
+                        height: 0;
                         border-left: 15px solid transparent;
                         border-right: 15px solid transparent;
-                        
                         border-bottom: 15px solid #ff2601;
-                      }
+                    }
+                }
+                #jeux_de_societe.is-active {
+                    box-shadow: 0px 1px 5px 2px #9FC65E;
+                    border-bottom: solid 3px #9FC65E;
+                    .arrow-up {
+                        width: 0;
+                        margin: 0 auto;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 15px solid #9FC65E;
+                    }
+                }
+                #realite_virtuelle.is-active {
+                    box-shadow: 0px 1px 5px 2px #3E4C8E;
+                    border-bottom: solid 3px #3E4C8E;
+                    .arrow-up {
+                        width: 0;
+                        margin: 0 auto;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 15px solid #3E4C8E;
+                    }
+                }
+                #snack_bar {
+                    h3 {
+                        span {
+                            background-color: #FF2601;
+                            padding: 0 0.15em;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+                #jeux_de_societe {
+                    h3 {
+                        span:first-of-type {
+                            background-color: #9FC65E;
+                            padding: 0 0.25em;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                        span:last-of-type {
+                            text-transform: lowercase;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+                #realite_virtuelle {
+                    h3 {
+                        span {
+                            background-color: #3E4C8E;
+                            padding: 0 0.2em;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
                 }
             }
             .tabs-content {
                 width: 100%;
+                .is-active {
+                    // @include mui-animation(slide($direction: bottom, $amount: 100%));
+                    // animation-duration: 2s;
+                    @include mui-hinge(
+                        $state: in,
+                        $from: left,
+                        $axis: center,
+                        $perspective: 2000px,
+                        $turn-origin: from-back
+                      );
+                }
             }
         }
     }
@@ -68,22 +167,95 @@ h1 {
                         outline: 0;
                     }
                 }
-                .is-active {
-                    box-shadow: 0px 1px 5px 2px;
+                #impression_3d.is-active {
+                    box-shadow: 0px 1px 5px 2px #ff2601;
                     border-bottom: solid 3px #ff2601;
                     .arrow-up {
                         width: 0;
                         margin: 0 auto;
-                        height: 0; 
+                        height: 0;
                         border-left: 15px solid transparent;
                         border-right: 15px solid transparent;
-                        
                         border-bottom: 15px solid #ff2601;
-                      }
+                    }
+                }
+                #atelier_formation.is-active {
+                    box-shadow: 0px 1px 5px 2px #9FC65E;
+                    border-bottom: solid 3px #9FC65E;
+                    .arrow-up {
+                        width: 0;
+                        margin: 0 auto;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 15px solid #9FC65E;
+                    }
+                }
+                #coworking.is-active {
+                    box-shadow: 0px 1px 5px 2px #3E4C8E;
+                    border-bottom: solid 3px #3E4C8E;
+                    .arrow-up {
+                        width: 0;
+                        margin: 0 auto;
+                        height: 0;
+                        border-left: 15px solid transparent;
+                        border-right: 15px solid transparent;
+                        border-bottom: 15px solid #3E4C8E;
+                    }
+                }
+                #impression_3d {
+                    h3 {
+                        span {
+                            background-color: #FF2601;
+                            padding: 0 0.15em;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+                #atelier_formation {
+                    h3 {
+                        span {
+                            background-color: #9FC65E;
+                            padding: 0 0.25em;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
+                }
+                #coworking {
+                    h3 {
+                        span {
+                            background-color: #3E4C8E;
+                            padding: 0 0.2em;
+                            color: white;
+                            border-radius: 5px;
+                        }
+                    }
+                    img {
+                        width: 100%;
+                    }
                 }
             }
             .tabs-content {
                 width: 100%;
+                .is-active {
+                    // @include mui-animation(slide($direction: bottom, $amount: 100%));
+                    // animation-duration: 2s;
+                    @include mui-hinge(
+                        $state: in,
+                        $from: left,
+                        $axis: center,
+                        $perspective: 2000px,
+                        $turn-origin: from-back
+                      );
+                }
             }
         }
     }
@@ -113,7 +285,7 @@ h1 {
         box-sizing: border-box;
         .center {
             margin-top: 10vh;
-            .horaire-dynamique  {
+            .horaire-dynamique {
                 @include mui-animation(fade);
                 animation-duration: 3s;
                 text-align: center;
@@ -130,7 +302,7 @@ h1 {
                 background-color: gray;
                 border: solid 2px blue;
                 padding: 0.9375rem;
-                .services-animate{
+                .services-animate {
                     div {
                         text-align: center
                     }
@@ -155,7 +327,13 @@ h1 {
     .image-slider {
         width: 60%;
     }
-    // CONTACT CSS64em
+    // BAR CSS
+    .accordion-atelier {
+        width: 1000%;
+        margin: auto;
+        margin-top: 1em;
+    }
+    // CONTACT CSS
 }
 
 
