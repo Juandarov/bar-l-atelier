@@ -1,20 +1,19 @@
 {% load cms_tags menu_tags sekizai_tags %}
 {% load sass_tags %}
 {% load static %}
+
 <!doctype html>
 <html>
-
 <head>
     <title>{% block title %}This is my new project home page{% endblock title %}</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link href="{% sass_src 'css/scss/style.scss' %}" rel="stylesheet" type="text/css"/> 
-    {% render_block "css" %}
+    <link href="{% sass_src 'css/scss/style.scss' %}" rel="stylesheet" type="text/css" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet"> {% render_block "css" %}
     <script type="text/javascript" src="{% static 'jquery/dist/jquery.min.js' %}"></script>
     <style>
         body {
-            background-image: url("{% static 'bg01.jpg' %}");
-            background-repeat: no-repeat;
-            background-size: 100%;
+            background-image: url("{% static 'bg03.png' %}");
+            background-size: cover;
         }
     </style>
 </head>
@@ -22,6 +21,7 @@
 <body>
     {% cms_toolbar %}
     <div class="container">
+        <a href="javascript:" id="return-to-top"><i class="icon-chevron-up"></i></a>
         <div class="title-bar" data-responsive-toggle="main-nav" data-hide-for="medium">
             <button class="menu-icon" type="button" data-toggle></button>
             <div class="title-bar-title">Menu</div>
@@ -34,14 +34,13 @@
                 </ul>
             </div>
         </div>
-        {% block content %}
-        {% endblock content %}
+        {% block content %} {% endblock content %}
 
         <footer>
             <h4>FOOTER</h4>
         </footer>
     </div>
-  
+
     <script type="text/javascript" src="{% static 'foundation-sites/dist/js/foundation.min.js' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.core.js' %}"></script>
     <script type="text/javascript" src="{% static 'foundation-sites/js/foundation.util.motion.js ' %}"></script>
@@ -56,9 +55,14 @@
             if (Foundation.MediaQuery.is('large')) {
                 $('.services-animate').addClass('is-animating');
             }
+
+            $('#return-to-top').click(function () { // When arrow is clicked
+                $('body,html').animate({
+                    scrollTop: 0 // Scroll to top of body
+                }, 500);
+            });
         });
     </script>
     {% render_block "js" %}
 </body>
-
 </html>

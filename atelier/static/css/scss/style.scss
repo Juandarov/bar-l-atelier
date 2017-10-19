@@ -7,137 +7,295 @@
 @import "static/bower_components/foundation-sites/scss/components/_accordion.scss";
 @import "variables";
 @import "animations";
-@import "small";
-@import "medium";
+@import "small-screen";
+@import "medium-screen";
+@import "large-screen";
 $breakpoints: ( small: 0px, medium: 40em, large: 64em, );
 // ALL CSS
-body {
-    background-image: url(../atelier/media/images/bg01.jpg);
-    background-size: cover;
-}
-
 h1 {
     color: grey;
     text-align: center;
 }
 
-
-// BAR CSS
-.bar {
-    h3 {
-        text-align: center;
-        text-transform: capitalize;
-        color: #575652;
-    }
+h2 {
+    font-size: 30px;
 }
 
-.atelier {
-    h3 {
-        text-align: center;
-        text-transform: capitalize;
-        color: #575652;
+    // BAR CSS
+    .bar {
+        #snack_bar {
+            a {
+                padding-bottom: 1.5em;
+                h2 {
+                    text-align: center;
+                    text-transform: capitalize;
+                    color: #575652;
+                    span {
+                        background-color: $rouge-atelier;
+                        padding: 0 0.15em;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        #jeux_de_societe {
+            a {
+                padding-bottom: 1.5em;
+                h2 {
+                    text-align: center;
+                    text-transform: capitalize;
+                    color: #575652;
+                    span:first-of-type {
+                        background-color: $vert-atelier;
+                        padding: 0 0.25em;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                    span:last-of-type {
+                        text-transform: lowercase;
+                    }
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        #realite_virtuelle {
+            a {
+                padding-bottom: 1.5em;
+                h2 {
+                    text-align: center;
+                    text-transform: capitalize;
+                    color: #575652;
+                    span {
+                        background-color: $bleu-atelier;
+                        padding: 0 0.2em;
+                        color: white;
+                        border-radius: 5px;
+                    }
+                }
+                img {
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    // ATELIER CSS
+    .atelier {
+        #impression_3d {
+            h2 {
+                text-align: center;
+                text-transform: capitalize;
+                color: #575652;
+                span {
+                    background-color: $rouge-atelier;
+                    padding: 0 0.15em;
+                    color: white;
+                    border-radius: 5px;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+        #atelier_formation {
+            h2 {
+                text-align: center;
+                text-transform: capitalize;
+                color: #575652;
+                span:first-of-type {
+                    background-color: $vert-atelier;
+                    padding: 0 0.25em;
+                    color: white;
+                    border-radius: 5px;
+                }
+                span:last-of-type {
+                    text-transform: lowercase;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+        #coworking {
+            h2 {
+                text-align: center;
+                text-transform: capitalize;
+                color: #575652;
+                span {
+                    background-color: $bleu-atelier;
+                    padding: 0 0.2em;
+                    color: white;
+                    border-radius: 5px;
+                }
+            }
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    // CONTACT CSS
+    .contact {
+        .adress {
+            h4 {
+                text-transform: capitalize;
+                color: #575652;
+                span {
+                    background-color: $rouge-atelier;
+                    padding: 0 0.15em;
+                    color: white;
+                    border-radius: 5px; 
+                }
+            }
+        }
+        .partenaria {
+            h4 {
+                text-transform: capitalize;
+                color: #575652;
+                span {
+                    background-color: $vert-atelier;
+                    padding: 0 0.15em;
+                    color: white;
+                    border-radius: 5px; 
+                }
+            }
+        }
+
+        .email {
+            h4 {
+                text-transform: capitalize;
+                color: #575652;
+                span {
+                    background-color: $bleu-atelier;
+                    padding: 0 0.15em;
+                    color: white;
+                    border-radius: 5px; 
+                }
+            } 
+        }
+    }
+
+// TRANSPARENT BACKGROUNDS
+.tabs {
+    background-color: rgba(255, 255, 255, 0.5);
+    li {
+        a {
+            background-color: rgba(255, 255, 255, 0.3);  
+        }
     }
 }
-
 
 /* Medium and up */
 
 @media screen and (min-width: 40em) {
+    div.top-bar {
+        background-color: transparent;
+        width: 100%;
+        .dropdown {
+            background-color: $rouge-atelier-transparent;
+            width: 100%;
+        }
+    }
+
     .bar {
         .accordion-atelier {
             .tabs {
                 width: 100%;
                 display: flex;
                 justify-content: space-between;
+                padding: 1em 0em;
                 .tabs-title {
                     width: 33.339%;
                     margin: 0.5em;
+                    border-radius: 10px;
                     a {
                         padding-bottom: 0;
                         outline: 0;
+                        border-radius: 10px;
                     }
                 }
                 #snack_bar.is-active {
-                    box-shadow: 0px 1px 5px 2px #ff2601;
-                    border-bottom: solid 3px #ff2601;
-                    .arrow-up {
-                        width: 0;
-                        margin: 0 auto;
-                        height: 0;
-                        border-left: 15px solid transparent;
-                        border-right: 15px solid transparent;
-                        border-bottom: 15px solid #ff2601;
+                    box-shadow: 0px 1px 5px 2px $rouge-atelier;
+                    border-bottom: solid 3px $rouge-atelier;
+                    a {
+                        padding-bottom: 0em;
+                        .arrow-up {
+                            width: 0;
+                            margin: 0 auto;
+                            height: 0;
+                            border-left: 15px solid transparent;
+                            border-right: 15px solid transparent;
+                            border-bottom: 15px solid $rouge-atelier;
+                        }
                     }
                 }
                 #jeux_de_societe.is-active {
-                    box-shadow: 0px 1px 5px 2px #9FC65E;
-                    border-bottom: solid 3px #9FC65E;
-                    .arrow-up {
-                        width: 0;
-                        margin: 0 auto;
-                        height: 0;
-                        border-left: 15px solid transparent;
-                        border-right: 15px solid transparent;
-                        border-bottom: 15px solid #9FC65E;
+                    box-shadow: 0px 1px 5px 2px $vert-atelier;
+                    border-bottom: solid 3px $vert-atelier;
+                    a {
+                        padding-bottom: 0em;
+                        .arrow-up {
+                            width: 0;
+                            margin: 0 auto;
+                            height: 0;
+                            border-left: 15px solid transparent;
+                            border-right: 15px solid transparent;
+                            border-bottom: 15px solid $vert-atelier;
+                        }
                     }
                 }
                 #realite_virtuelle.is-active {
-                    box-shadow: 0px 1px 5px 2px #3E4C8E;
-                    border-bottom: solid 3px #3E4C8E;
-                    .arrow-up {
-                        width: 0;
-                        margin: 0 auto;
-                        height: 0;
-                        border-left: 15px solid transparent;
-                        border-right: 15px solid transparent;
-                        border-bottom: 15px solid #3E4C8E;
+                    box-shadow: 0px 1px 5px 2px  $bleu-atelier;
+                    border-bottom: solid 3px $bleu-atelier;
+                    a {
+                        padding-bottom: 0em;
+                        .arrow-up {
+                            width: 0;
+                            margin: 0 auto;
+                            height: 0;
+                            border-left: 15px solid transparent;
+                            border-right: 15px solid transparent;
+                            border-bottom: 15px solid $bleu-atelier;
+                        }
                     }
                 }
-                #snack_bar {
-                    h3 {
-                        span {
-                            background-color: #FF2601;
-                            padding: 0 0.15em;
-                            color: white;
-                            border-radius: 5px;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
+
+                #snack_bar.tabs-title > a:hover {
+                    background: $rouge-atelier-transparent;
+                    color: white;
                 }
-                #jeux_de_societe {
-                    h3 {
-                        span:first-of-type {
-                            background-color: #9FC65E;
-                            padding: 0 0.25em;
-                            color: white;
-                            border-radius: 5px;
-                        }
-                        span:last-of-type {
-                            text-transform: lowercase;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
+                #jeux_de_societe.tabs-title > a:hover {
+                    background: $vert-atelier-transparent;
+                    color: white;
                 }
-                #realite_virtuelle {
-                    h3 {
-                        span {
-                            background-color: #3E4C8E;
-                            padding: 0 0.2em;
-                            color: white;
-                            border-radius: 5px;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
+                #realite_virtuelle.tabs-title > a:hover {
+                    background: $bleu-atelier-transparent;
+                    color: white;
+                }
+        
+        
+                #snack_bar.tabs-title > a[aria-selected="true"] {
+                    background-color: $rouge-atelier-transparent;
+                    color: white;
+                }
+                #jeux_de_societe.tabs-title > a[aria-selected="true"] {
+                    background-color: $vert-atelier-transparent;
+                    color: white;
+                }
+                #realite_virtuelle.tabs-title > a[aria-selected="true"] {
+                    background-color: $bleu-atelier-transparent;
+                    color: white;
                 }
             }
             .tabs-content {
                 width: 100%;
+                background: transparent;
                 .is-active {
                     // @include mui-animation(slide($direction: bottom, $amount: 100%));
                     // animation-duration: 2s;
@@ -148,6 +306,25 @@ h1 {
                         $perspective: 2000px,
                         $turn-origin: from-back
                       );
+                }
+
+                .texte {
+                    padding: 0em 1em;
+                }
+
+                #SB.tabs-panel {
+                    background-color: $rouge-atelier-transparent;
+                    border-top: solid 4px $rouge-atelier;
+                }
+
+                #JDS.tabs-panel {
+                    background-color: $vert-atelier-transparent;
+                    border-top: solid 4px $vert-atelier;
+                }
+
+                #RV.tabs-panel {
+                    background-color: $bleu-atelier-transparent;
+                    border-top: solid 4px $bleu-atelier;
                 }
             }
         }
@@ -162,89 +339,81 @@ h1 {
                 .tabs-title {
                     width: 33.339%;
                     margin: 0.5em;
+                    border-radius: 10px;
                     a {
                         padding-bottom: 0;
                         outline: 0;
+                        border-radius: 10px;
+                        height: 100%;
                     }
                 }
                 #impression_3d.is-active {
-                    box-shadow: 0px 1px 5px 2px #ff2601;
-                    border-bottom: solid 3px #ff2601;
+                    box-shadow: 0px 1px 5px 2px $rouge-atelier;
+                    border-bottom: solid 3px $rouge-atelier;
                     .arrow-up {
                         width: 0;
                         margin: 0 auto;
                         height: 0;
                         border-left: 15px solid transparent;
                         border-right: 15px solid transparent;
-                        border-bottom: 15px solid #ff2601;
+                        border-bottom: 15px solid $rouge-atelier;
                     }
                 }
                 #atelier_formation.is-active {
-                    box-shadow: 0px 1px 5px 2px #9FC65E;
-                    border-bottom: solid 3px #9FC65E;
+                    box-shadow: 0px 1px 5px 2px $vert-atelier;
+                    border-bottom: solid 3px $vert-atelier;
                     .arrow-up {
                         width: 0;
                         margin: 0 auto;
                         height: 0;
                         border-left: 15px solid transparent;
                         border-right: 15px solid transparent;
-                        border-bottom: 15px solid #9FC65E;
+                        border-bottom: 15px solid $vert-atelier;
                     }
                 }
                 #coworking.is-active {
-                    box-shadow: 0px 1px 5px 2px #3E4C8E;
-                    border-bottom: solid 3px #3E4C8E;
+                    box-shadow: 0px 1px 5px 2px  $bleu-atelier;
+                    border-bottom: solid 3px $bleu-atelier;
                     .arrow-up {
                         width: 0;
                         margin: 0 auto;
                         height: 0;
                         border-left: 15px solid transparent;
                         border-right: 15px solid transparent;
-                        border-bottom: 15px solid #3E4C8E;
+                        border-bottom: 15px solid $bleu-atelier;
                     }
                 }
-                #impression_3d {
-                    h3 {
-                        span {
-                            background-color: #FF2601;
-                            padding: 0 0.15em;
-                            color: white;
-                            border-radius: 5px;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
+
+                #impression_3d.tabs-title > a:hover {
+                    background: $rouge-atelier-transparent;
+                    color: white;
                 }
-                #atelier_formation {
-                    h3 {
-                        span {
-                            background-color: #9FC65E;
-                            padding: 0 0.25em;
-                            color: white;
-                            border-radius: 5px;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
+                #atelier_formation.tabs-title > a:hover {
+                    background: $vert-atelier-transparent;
+                    color: white;
                 }
-                #coworking {
-                    h3 {
-                        span {
-                            background-color: #3E4C8E;
-                            padding: 0 0.2em;
-                            color: white;
-                            border-radius: 5px;
-                        }
-                    }
-                    img {
-                        width: 100%;
-                    }
+                #coworking.tabs-title > a:hover {
+                    background: $bleu-atelier-transparent;
+                    color: white;
+                }
+        
+        
+                #impression_3d.tabs-title > a[aria-selected="true"] {
+                    background-color: $rouge-atelier-transparent;
+                    color: white;
+                }
+                #atelier_formation.tabs-title > a[aria-selected="true"] {
+                    background-color: $vert-atelier-transparent;
+                    color: white;
+                }
+                #coworking.tabs-title > a[aria-selected="true"] {
+                    background-color: $bleu-atelier-transparent;
+                    color: white;
                 }
             }
             .tabs-content {
                 width: 100%;
+                background: transparent;
                 .is-active {
                     // @include mui-animation(slide($direction: bottom, $amount: 100%));
                     // animation-duration: 2s;
@@ -256,87 +425,68 @@ h1 {
                         $turn-origin: from-back
                       );
                 }
-            }
-        }
-    }
-}
 
+                .texte {
+                    padding: 0em 1em;
+                }
 
-/* Large and up */
+                #IMP.tabs-panel {
+                    background-color: $rouge-atelier-transparent;
+                    border-top: solid 4px $rouge-atelier;
+                }
 
-@media screen and (min-width: 64em) {
-    // BASE CSS
-    .small-services-buttons {
-        display: none;
-    }
-    .title-bar {
-        display: none;
-    }
-    .top-bar {
-        padding: 0;
-        height: 8vh
-    }
-    // HOME CSS
-    .home {
-        width: 100%;
-        height: 82vh;
-        position: relative;
-        overflow: hidden;
-        box-sizing: border-box;
-        .center {
-            margin-top: 10vh;
-            .horaire-dynamique {
-                @include mui-animation(fade);
-                animation-duration: 3s;
-                text-align: center;
-            }
-            .logo-img {
-                @include mui-animation(slide($direction: right, $amount: 120%));
-                animation-duration: 2s;
-                background-color: gray;
-                border: solid 2px blue;
-            }
-            .services {
-                @include mui-animation(slide($direction: top, $amount: 120%));
-                animation-duration: 2s;
-                background-color: gray;
-                border: solid 2px blue;
-                padding: 0.9375rem;
-                .services-animate {
-                    div {
-                        text-align: center
-                    }
+                #AF.tabs-panel {
+                    background-color: $vert-atelier-transparent;
+                    border-top: solid 4px $vert-atelier;
+                }
+
+                #CK.tabs-panel {
+                    background-color: $bleu-atelier-transparent;
+                    border-top: solid 4px $bleu-atelier;
                 }
             }
-            .evenements {
-                @include mui-animation(slide($direction: left, $amount: 120%));
-                animation-duration: 2s;
-                background-color: gray;
-                border: solid 2px blue;
-                display: flex;
-                justify-content: space-around;
-            }
         }
     }
-    .home+footer {
-        height: 10vh;
-        text-align: center;
-        background-color: grey;
-    }
-    // ACCUEIL
-    .image-slider {
-        width: 60%;
-    }
-    // BAR CSS
-    .accordion-atelier {
-        width: 1000%;
-        margin: auto;
-        margin-top: 1em;
-    }
-    // CONTACT CSS
 }
 
-
-/* Large only */
-
-@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+// RETURN TO TOP
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: block;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}

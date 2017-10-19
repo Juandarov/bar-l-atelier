@@ -3,44 +3,35 @@
 {% load static %} 
 {% block title %} {% page_attribute "page_title" %} {% endblock title %} 
 {% block content %}
+
 <div class="home">
     <h1>Bar L'Atelier</h1>
     <div class="row center">
         <div class="small-12 columns horaire-dynamique">
-            <p>horaires dynamique</p>
         </div>
 
-        <div class="small-12 medium-3 large-2 columns logo-img">
-            <img src="{% static 'Logo_Atelier_Design.jpg' %}" alt="logo">
-        </div>
-
-        <div class="small-12 medium-3 large-6 columns services">
-            <div class="row small-services-buttons">
-                <div class="small-12 columns">
-                    <a href="#" class="button success">Button 1</a>
-                </div>
-                <div class="small-12 columns">
-                    <a href="#" class="button alert">Button 2</a>
-                </div>
-                <div class="small-12 columns">
-                    <a href="#" class="button">Button 3</a>
-                </div>
-            </div>
-
-            <div class="row align-spaced services-animate">
-                <div class="large-4 colums" id="bar">
-                    <a href="">
+        <div class="small-12 medium-3 large-8 columns services">
+            <div class="row align-spaced">
+                <div class=" large-4 colums" id="bar">
+                    <a href="{% page_url "bar" %}">
                         <h4>Le Bar</h4>
+                        <img src="{% static 'bar_home.jpg' %}" alt="img">
                         Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
                     </a>
                 </div>
                 <div class="large-4 colums" id="atelier">
-                    <h4>L'Atelier</h4>
-                    Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                    <a href="{% page_url "atelier" %}">
+                        <h4>L'Atelier</h4>
+                        <img src="{% static 'atelier_home.jpg' %}" alt="img">
+                        Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                    </a>
                 </div>
                 <div class="large-4 colums" id="lieu-de-vie">
-                    <h4>Evénements</h4>
-                    Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                    <a href="{% page_url "events" %}">
+                        <h4>Evénements</h4>
+                        <img src="{% static 'events_home.jpg' %}" alt="img">
+                        Et quia Montius inter dilancinantium manus spiritum efflaturus Epigonum.
+                    </a>
                 </div>
             </div>
         </div>
@@ -50,4 +41,102 @@
         </div>
     </div>
 </div>
+
+{% placeholder "horaires" %}
+
+{% addtoblock "js" %}
+<script type="text/javascript">
+    //0=Sun, 1=Mon, ..., 6=Sat
+
+    $(document).ready(function () {
+        var jourActuel = new Date();
+        var heureActuelle = getval();
+
+        if ( jourActuel.getDay() == 1 && get24Hr(heureActuelle) > get24Hr(horairesOuvertures1) && get24Hr(heureActuelle) < get24Hr(horairesFermetures1) ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>ouvert</strong></p>" );
+        }
+        else if ( jourActuel.getDay() == 2 && get24Hr(heureActuelle) > get24Hr(horairesOuvertures2) && get24Hr(heureActuelle) < get24Hr(horairesFermetures2) ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>ouvert</strong></p>" );
+        }
+        else if ( jourActuel.getDay() == 3 && get24Hr(heureActuelle) > get24Hr(horairesOuvertures3) && get24Hr(heureActuelle) < get24Hr(horairesFermetures3) ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>ouvert</strong></p>" );
+        }
+        else if ( jourActuel.getDay() == 4 && get24Hr(heureActuelle) > get24Hr(horairesOuvertures4) && get24Hr(heureActuelle) < get24Hr(horairesFermetures4) ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>ouvert</strong></p>" );
+        }
+        else if ( jourActuel.getDay() == 5 && get24Hr(heureActuelle) > get24Hr(horairesOuvertures5) && get24Hr(heureActuelle) < get24Hr(horairesFermetures5) ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>ouvert</strong></p>" );
+        }
+        else if ( jourActuel.getDay() == 6 && get24Hr(heureActuelle) > get24Hr(horairesOuvertures6) && get24Hr(heureActuelle) < get24Hr(horairesFermetures6) ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>ouvert</strong></p>" );
+        }
+        else if ( jourActuel.getDay() == 0 ) {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>fermé</strong></p>" );
+        }
+
+        else {
+            $( ".horaire-dynamique" ).append( "<p>Le Bar L'Atelier est actuellement <strong>fermé</strong></p>" );
+        }
+
+
+        function get24Hr(time) {
+            var hours = Number(time.match(/^(\d+)/)[1]);
+            var AMPM = time.match(/\s(.*)$/)[1];
+            if (AMPM == "PM" && hours < 12) hours = hours + 12;
+            if (AMPM == "AM" && hours == 12) hours = hours - 12;
+
+            var minutes = Number(time.match(/:(\d+)/)[1]);
+            hours = hours * 100 + minutes;
+            console.log(time + " - " + hours);
+            return hours;
+        }
+
+        function getval() {
+            var currentTime = new Date()
+            var hours = currentTime.getHours()
+            var minutes = currentTime.getMinutes()
+
+            if (minutes < 10) minutes = "0" + minutes;
+
+            var suffix = "AM";
+            if (hours >= 12) {
+                suffix = "PM";
+                hours = hours - 12;
+            }
+            if (hours == 0) {
+                hours = 12;
+            }
+            var current_time = hours + ":" + minutes + " " + suffix;
+
+            return current_time;
+        }
+    });
+
+</script>
+{% endaddtoblock %} 
+
 {% endblock content %}
+
+// // Horaires du Lundi
+// var horairesOuvertures1 = '10:00 AM';
+// var horairesFermetures1 = '19:00 PM';
+
+// // Horaires du Mardi
+// var horairesOuvertures2 = '12:30 PM';
+// var horairesFermetures2 = '21:30 PM';
+
+// // Horaires du Mercredi
+// var horairesOuvertures3 = '10:00 AM';
+// var horairesFermetures3 = '21:30 PM';
+
+// // Horaires du Jeudi
+// var horairesOuvertures4 = '10:00 AM';
+// var horairesFermetures4 = '00:00 PM';
+
+// // Horaires du Vendredi
+// var horairesOuvertures5 = '10:00 AM';
+// var horairesFermetures5 = '00:00 PM';
+
+// // Horaires du Samedi
+// var horairesOuvertures6 = '10:00 AM';
+// var horairesFermetures6 = '00:00 PM';

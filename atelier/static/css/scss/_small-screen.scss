@@ -1,0 +1,54 @@
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+// PAGES
+
+    #return-to-top {
+        display: none;
+    }
+
+    // HOME CSS
+    .home {
+        .logo-img {
+            text-align: center;
+            img {
+                width: 60%;
+            }
+        }
+    }
+
+    // BAR CSS
+    .bar {
+        .accordion-atelier {  
+            width: 100%;
+            #atelier-tabs.accordion {
+                background: transparent;
+                .accordion-title:hover, .accordion-title:focus {
+                    background-color: transparent;
+                }
+
+                .accordion-title {
+                    img {
+                        width: 100%;
+                    }
+
+                    .description {
+                        display: none;
+                    }
+                    
+                }
+
+                #SB {
+                    background-color: $white-atelier-transparent-small;
+                }
+                #JDS {
+                    background-color: $white-atelier-transparent-small;
+                }
+                #RV {
+                    background-color: $white-atelier-transparent-small;
+                }
+
+            }
+        }
+    }
+    
+}
